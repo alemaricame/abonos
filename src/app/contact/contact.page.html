@@ -1,0 +1,124 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Inventario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-body>
+      <ion-label>Selecciona al vendedor</ion-label>
+      <ion-select [(ngModel)]="vendedor" [compareWith]="compareWith"  (ngModelChange)="getVendedorSelected($event)">
+        <ion-select-option *ngFor="let cliente of clientes" [value]="cliente.idUser" [selected]="cliente.idUser">
+            {{cliente.usuario}}
+        </ion-select-option>
+      </ion-select>
+    </ion-card-body>
+  </ion-card>
+
+  <ion-row class="ion-text-center">
+      <label *ngIf="cargando === true">Cargando inventario...</label>    
+  </ion-row>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+  </ion-refresher>
+
+
+  <div *ngIf="validate === false">
+    <ion-row class="ion-text-center">
+      <ion-col>
+        Producto
+      </ion-col>
+      <ion-col>
+        Cant
+      </ion-col>
+      <ion-col>
+        Precio
+      </ion-col>
+      <ion-col>
+        
+       </ion-col>
+   </ion-row>
+   <ion-row *ngFor="let item of items" class="ion-text-center">
+       <ion-col >
+        <ion-input style="text-align: left; font-size: 12px;" [(ngModel)]="item.descripcion"></ion-input>
+       </ion-col>
+       <ion-col size="3">
+        <ion-input type="number" [(ngModel)]="item.cantidad"></ion-input>
+       </ion-col>
+       <ion-col size="3">
+        <ion-input type="text" [(ngModel)]="item.precio_venta_vendedor"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-button *ngIf="sended === false" (click)="guardar()"> Guardar Cambios </ion-button>
+   <ion-label *ngIf="sended === true">Guardando...</ion-label> 
+  </div>
+
+</ion-content> -->
+
+<ion-content>
+  <ion-row >
+    <ion-col>
+      <ion-card>
+        <ion-card-body (click)="inventariogral()">
+          <ion-icon name="clipboard-outline"></ion-icon>
+          <h3>Inventario general</h3>
+        </ion-card-body>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="inventarioven()" >
+        <ion-card-body>
+          <ion-icon name="apps-outline"></ion-icon>
+          <h3>Inventario por vendedor</h3>
+        </ion-card-body>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row >
+    <ion-col>
+      <ion-card>
+        <ion-card-body (click)="addProducto()" >
+          <ion-icon name="archive-outline"></ion-icon>          
+          <h3>Agregar nuevo producto</h3>
+        </ion-card-body>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card (click)="historialventas()" >
+        <ion-card-body>
+          <ion-icon name="cart-outline"></ion-icon>
+          <h3>Ver ventas por vendedor</h3>
+        </ion-card-body>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  
+  <ion-row >
+    <ion-col>
+      <ion-card>
+        <ion-card-body (click)="adminVendedor()" >
+          <ion-icon name="body-outline"></ion-icon>          
+          <h3>Administrar vendedores</h3>
+        </ion-card-body>
+      </ion-card>
+    </ion-col>
+    <!-- <ion-col>
+      <ion-card (click)="historialventas()" >
+        <ion-card-body>
+          
+        </ion-card-body>
+      </ion-card>
+    </ion-col> -->
+  </ion-row>
+
+</ion-content>

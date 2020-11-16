@@ -3,9 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 
+  //'http://localhost/rutas/index.php/'
+  'https://medicel.herokuapp.com/index.php/'
+  //http://localhost/medicel/medicel_repo/php_action/AppActions/login.php
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
