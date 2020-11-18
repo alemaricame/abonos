@@ -8,5 +8,31 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-searchbar [animated]="true" [showCancelButton]="false" (ionInput)="filterList($event)">
+    </ion-searchbar>
+  </ion-row>
 
+<ion-card *ngFor="let producto of inventario" class="border">
+  <ion-card-body>
+    <ion-row>
+      <ion-col>
+        <h4>{{producto.descripcion}}</h4>
+        <p>Precios</p>
+        <p>Precio mostrador: {{producto.precio_venta | currency}}</p>
+        <p>Precio vendedor: {{producto.precio_venta_vendedor | currency}}</p>
+      </ion-col>
+      <ion-col class="ion-text-center ion-align-items-center ion-justify-content-center">
+        <ion-label>Stock</ion-label>
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="producto.almacen"></ion-input>
+        </ion-item>
+      </ion-col>
+     
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-button (click)="guardarstock(producto)">Guardar Stock</ion-button>
+    </ion-row>
+  </ion-card-body>
+</ion-card>
 </ion-content>

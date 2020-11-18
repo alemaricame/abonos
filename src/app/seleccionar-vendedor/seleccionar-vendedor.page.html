@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>seleccionar-vendedor</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Selecciona vendedor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-row *ngFor="let vendedor of vendedores">
+    <ion-card color="dark" [routerLink]="['/inventario-vendedor', vendedor]" >
+      <ion-card-body class="text-center">
+        <h3>{{vendedor.nombreEmpleado}}</h3>
+      </ion-card-body>
+    </ion-card>
+  </ion-row>
 
 </ion-content>

@@ -66,7 +66,7 @@
 <ion-content>
   <ion-row >
     <ion-col>
-      <ion-card>
+      <ion-card color="primary">
         <ion-card-body (click)="inventariogral()">
           <ion-icon name="clipboard-outline"></ion-icon>
           <h3>Inventario general</h3>
@@ -74,7 +74,7 @@
       </ion-card>
     </ion-col>
     <ion-col>
-      <ion-card (click)="inventarioven()" >
+      <ion-card color="secondary" (click)="inventarioven()" >
         <ion-card-body>
           <ion-icon name="apps-outline"></ion-icon>
           <h3>Inventario por vendedor</h3>
@@ -85,7 +85,7 @@
 
   <ion-row >
     <ion-col>
-      <ion-card>
+      <ion-card color="dark">
         <ion-card-body (click)="addProducto()" >
           <ion-icon name="archive-outline"></ion-icon>          
           <h3>Agregar nuevo producto</h3>
@@ -93,7 +93,7 @@
       </ion-card>
     </ion-col>
     <ion-col>
-      <ion-card (click)="historialventas()" >
+      <ion-card color="light" (click)="historialventas()" >
         <ion-card-body>
           <ion-icon name="cart-outline"></ion-icon>
           <h3>Ver ventas por vendedor</h3>
@@ -105,7 +105,7 @@
   
   <ion-row >
     <ion-col>
-      <ion-card>
+      <ion-card color="medium">
         <ion-card-body (click)="adminVendedor()" >
           <ion-icon name="body-outline"></ion-icon>          
           <h3>Administrar vendedores</h3>

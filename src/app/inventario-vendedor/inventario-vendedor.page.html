@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>inventario-vendedor</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inventario vendedor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card class="ion-padding" color="dark">
+    <h3>{{vendedorname}}</h3>
+    <div class="row">
+      <label for="">Total de inventario : {{totalinventario | currency}}</label>
+    </div>
+  </ion-card>
+
+  <ion-row>
+    <ion-searchbar [animated]="true" [showCancelButton]="false" (ionInput)="filterList($event)">
+    </ion-searchbar>
+  </ion-row>
+
+<ion-card *ngFor="let producto of inventario" class="border ion-padding">
+  <ion-card-body>
+    <ion-row>
+      <ion-col>
+        <h4>{{producto.descripcion}}</h4>
+        <p>Precio vendedor: {{producto.precio_venta_vendedor | currency}}</p>
+      </ion-col>
+      <ion-col class="ion-text-center ion-align-items-center ion-justify-content-center">
+        <ion-label>Stock</ion-label>
+        <ion-item>
+          <ion-input type="number" (change)="total(producto)" [(ngModel)]="producto.cantidad"></ion-input>
+        </ion-item>
+        
+      </ion-col>
+     
+    </ion-row>
+    <ion-row>
+      <ion-label>Total:</ion-label>
+    <ion-item>
+      <ion-input type="number" [(ngModel)]="producto.total"></ion-input>
+    </ion-item>
+    </ion-row>
+    <ion-row class="ion-text-center ion-justify-content-end ion-margin-top ion-margin-bottom">
+      <ion-button (click)="guardarstock(producto)">Guardar Stock</ion-button>
+    </ion-row>
+  </ion-card-body>
+</ion-card>
 
 </ion-content>
