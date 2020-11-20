@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { UserService } from '../api/user.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class InventarioVendedorPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    public toastController: ToastController
   ) { 
     this.route.params.subscribe((vendedor) => {
       console.log('vendedor selected', vendedor.idUser);
@@ -97,9 +99,27 @@ export class InventarioVendedorPage implements OnInit {
   }
   
 guardarstock(producto){
-  this.userService.update(producto).subscribe((data) => {
-    console.log('data', data);
+  this.userService.update(producto).subscribe(async(data) => {
+    if(data){
+      const toast = await this.toastController.create({
+        color: 'dark',
+        message: 'Se ha editado correctamente',
+        duration: 2000
+      });
+      toast.present();
+    }else{
+      const toast = await this.toastController.create({
+        color: 'dark',
+        message: 'Error al editar',
+        duration: 2000
+      });
+      toast.present();
+    }
   })
+}
+
+agregarProducto(){
+  
 }
   
 }

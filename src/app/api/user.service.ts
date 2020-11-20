@@ -35,6 +35,12 @@ export class UserService {
     return this.http.post(environment.apiURL+'/consultas/updateProducto',data);
   }
 
+  addProductoVendedor(data){
+    //agregarproductovendedor_post
+    return this.http.post(environment.apiURL+'/consultas/agregarproductovendedor',data);
+
+  }
+
 
   inventario(){
     this.sended = true;
